@@ -6,7 +6,7 @@
 /*   By: zmakhkha <zmakhkha@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/01/22 21:28:09 by zmakhkha          #+#    #+#             */
-/*   Updated: 2023/01/25 12:25:29 by zmakhkha         ###   ########.fr       */
+/*   Updated: 2023/01/26 15:50:46 by zmakhkha         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,18 +14,33 @@
 # define HEADER_H
 
 # include "../libft/libft.h"
-#include <mlx.h>
-#include <libc.h>
+# include <mlx.h>
+# include <libc.h>
 
-typedef struct	s_data {
+typedef struct t_m_data {
+	int		x;
+	int		y;
+	int		n;
+	int		m_iter;
+	int		height;
+	int		width;
+	double	o_re;
+	double	n_re;
+	double	o_im;
+	double	n_im;
+	double	c_re;
+	double	c_im;
+}			t_mdata;
+
+typedef struct s_data {
 	void	*img;
 	char	*addr;
 	int		bits_per_pixel;
 	int		line_length;
 	int		endian;
-} t_data;
+}				t_data;
 
-typedef struct	s_vars {
+typedef struct s_vars {
 	void	*mlx;
 	void	*win;
 }				t_vars;
@@ -33,7 +48,5 @@ typedef struct	s_vars {
 void		my_mlx_pixel_put(t_data *data, int x, int y, int color);
 void		ft_close(int keycode, t_vars *vars);
 int			key_hook(int keycode, t_vars *vars);
-
-
 
 #endif

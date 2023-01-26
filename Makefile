@@ -9,12 +9,12 @@ OBJ = $(SRC:.c=.o)
 
 CC = cc
 
-CFLAGS = 
+CFLAGS = -Wall -Werror -Wextra
 
 all: $(NAME_R) NAME
 
 NAME : SRC_R
-	$(CC)  $(CFLAGS) $(OBJ) $(LIBFT_A_PATH) -lmlx -framework OpenGL -framework AppKit -o $(NAME)
+	@$(CC)  $(CFLAGS) $(OBJ) $(LIBFT_A_PATH) -lmlx -framework OpenGL -framework AppKit -o $(NAME)
 
 SRC_R : $(OBJ)
 	@make -C $(LIBFT_PATH)
@@ -23,9 +23,11 @@ SRC_R : $(OBJ)
 	$(CC) $(CFLAGS) -Imlx -c $< -o $@
 
 clean:
+	@make clean -C libft
 	@rm -f $(OBJ)
 
 fclean:
+	@make fclean -C libft
 	@rm -f $(OBJ) $(NAME)
 
 re	: fclean	all
