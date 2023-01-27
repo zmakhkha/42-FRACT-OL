@@ -6,7 +6,7 @@
 /*   By: zmakhkha <zmakhkha@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/01/24 23:14:37 by zmakhkha          #+#    #+#             */
-/*   Updated: 2023/01/26 15:48:41 by zmakhkha         ###   ########.fr       */
+/*   Updated: 2023/01/27 16:53:57 by zmakhkha         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -25,6 +25,13 @@ void	ft_close(int keycode, t_vars *vars)
 	if (keycode == 53)
 		mlx_destroy_window(vars->mlx, vars->win);
 	ft_print_error("Successfully Destroyed", 0);
+}
+
+int	destroy(t_vars *vars)
+{
+	mlx_destroy_window(vars->mlx, vars->win);
+	ft_print_error("Successfully Destroyed", 0);
+	return (0);
 }
 
 int	key_hook(int keycode, t_vars *vars)

@@ -6,7 +6,7 @@
 /*   By: zmakhkha <zmakhkha@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/01/22 19:17:32 by zmakhkha          #+#    #+#             */
-/*   Updated: 2023/01/26 16:04:46 by zmakhkha         ###   ########.fr       */
+/*   Updated: 2023/01/27 16:57:07 by zmakhkha         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -23,6 +23,8 @@ t_mdata	*ft_initiate_mandelbrot(int height, int width)
 	data -> m_iter = 50;
 	data -> height = height;
 	data -> width = width;
+	data -> scale = 2.8;
+	data -> color = 0x645CBB;
 	data -> o_re = 0;
 	data -> n_re = 0;
 	data -> o_im = 0;
@@ -34,8 +36,10 @@ t_mdata	*ft_initiate_mandelbrot(int height, int width)
 
 void	ft_put_pixel_mandelbrot(t_mdata *data, t_data *img)
 {
-	data -> c_re = (data -> x) * (4.0 / data -> width) - 2.0;
-	data -> c_im = (data -> y) * (4.0 / data -> height) - 2.0;
+	data -> c_re = (data -> x) * (data -> scale / data -> width) \
+		- data ->scale / 2;
+	data -> c_im = (data -> y) * (data -> scale / data -> height) \
+		- data -> scale / 2;
 	data -> n_re = 0;
 	data -> n_im = 0;
 	data -> n = -1;
@@ -51,9 +55,16 @@ void	ft_put_pixel_mandelbrot(t_mdata *data, t_data *img)
 			break ;
 	}
 	if (data -> n < data -> m_iter)
-		my_mlx_pixel_put(img, data -> x, data -> y, 0xFFFFFF);
+		data->color = 0xFFFFFF;
 	else
-		my_mlx_pixel_put(img, data -> x, data -> y, 0x000000);
+		data->color = 0x645CBB;
+	my_mlx_pixel_put(img, data -> x, data -> y, data ->color);
+}
+
+int	*ft_zoom_it(double *p)
+{
+	*p = *p * .1;
+	return (0);
 }
 
 void	ft_mandelbrot(t_vars *vars, t_data *img)
@@ -65,12 +76,9 @@ void	ft_mandelbrot(t_vars *vars, t_data *img)
 	{
 		data -> y = -1;
 		while (++data -> y < data -> height)
-		{
 			ft_put_pixel_mandelbrot(data, img);
-		}
 		mlx_put_image_to_window((*vars).mlx, (*vars).win, (*img).img, 0, 0);
 	}
-	ft_putnbr_fd(data -> y, 1);
 	free (data);
 }
 
@@ -85,6 +93,7 @@ int	main(void)
 	img.addr = mlx_get_data_addr(img.img, &img.bits_per_pixel, \
 	&img.line_length, &img.endian);
 	ft_mandelbrot(&vars, &img);
-	mlx_hook(vars.win, 2, 1L << 0, key_hook, &vars);
+	mlx_hook(vars.win, 2, 1L << 5, key_hook, &vars);
+	mlx_hook(vars.win, 17, 1L << 0, destroy, &vars);
 	mlx_loop(vars.mlx);
 }
