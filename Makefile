@@ -14,7 +14,7 @@ CFLAGS = -Wall -Werror -Wextra
 all: $(NAME_R) NAME
 
 NAME : SRC_R
-	@$(CC)  $(CFLAGS) $(OBJ) $(LIBFT_A_PATH) -lmlx -framework OpenGL -framework AppKit -o $(NAME)
+	@$(CC)  $(CFLAGS) $(SRC) $(LIBFT_A_PATH) -lmlx -framework OpenGL -framework AppKit -o $(NAME)
 
 SRC_R : $(OBJ)
 	@make -C $(LIBFT_PATH)

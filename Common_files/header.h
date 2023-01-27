@@ -6,7 +6,7 @@
 /*   By: zmakhkha <zmakhkha@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/01/22 21:28:09 by zmakhkha          #+#    #+#             */
-/*   Updated: 2023/01/27 16:54:10 by zmakhkha         ###   ########.fr       */
+/*   Updated: 2023/01/27 19:29:27 by zmakhkha         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,7 +17,18 @@
 # include <mlx.h>
 # include <libc.h>
 
-typedef struct t_m_data {
+typedef struct s_data {
+	void	*img;
+	char	*addr;
+	int		bits_per_pixel;
+	int		line_length;
+	int		endian;
+}				t_data;
+
+typedef struct s_vars {
+	t_data	img;
+	void	*mlx;
+	void	*win;
 	int		x;
 	int		y;
 	int		n;
@@ -32,19 +43,6 @@ typedef struct t_m_data {
 	double	n_im;
 	double	c_re;
 	double	c_im;
-}			t_mdata;
-
-typedef struct s_data {
-	void	*img;
-	char	*addr;
-	int		bits_per_pixel;
-	int		line_length;
-	int		endian;
-}				t_data;
-
-typedef struct s_vars {
-	void	*mlx;
-	void	*win;
 }				t_vars;
 
 void		my_mlx_pixel_put(t_data *data, int x, int y, int color);
