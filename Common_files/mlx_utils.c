@@ -6,7 +6,7 @@
 /*   By: zmakhkha <zmakhkha@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/01/24 23:14:37 by zmakhkha          #+#    #+#             */
-/*   Updated: 2023/02/01 15:26:11 by zmakhkha         ###   ########.fr       */
+/*   Updated: 2023/02/01 17:22:45 by zmakhkha         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -34,14 +34,6 @@ int	destroy(t_vars *vars)
 	ft_print_error("Successfully Destroyed", 0);
 	free (vars);
 	return (0);
-}
-
-void	ft_initiate_window(t_vars *data)
-{
-	data ->img.img = mlx_new_image(data -> mlx, data -> width, data -> height);
-	data ->img.addr = mlx_get_data_addr(data -> img.img, \
-		&(data ->img.bits_per_pixel), \
-	&(data -> img.line_length), &(data ->img.endian));
 }
 
 void	ft_mlx_wait(t_vars *data)

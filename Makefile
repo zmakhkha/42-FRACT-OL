@@ -1,9 +1,15 @@
 
 LIBFT_PATH = libft
 LIBFT_A_PATH = libft/libft.a
-NAME = mandelbrot
+NAME = fract
 
-SRC = mandelbrot_main.c Common_files/mlx_utils.c Common_files/ft_colors.c Common_files/ft_hooks.c
+SRC = Common_files/ft_colors.c \
+	Common_files/ft_hooks.c \
+	Common_files/mlx_utils_2.c \
+	Common_files/mlx_utils.c \
+	main_program.c \
+	julia_main.c \
+	mandelbrot_main.c
 OBJ = $(SRC:.c=.o)
 
 
@@ -14,13 +20,13 @@ CFLAGS = -Wall -Werror -Wextra
 all: $(NAME_R) NAME
 
 NAME : SRC_R
-	@$(CC)  $(CFLAGS) $(SRC) $(LIBFT_A_PATH) -lmlx -framework OpenGL -framework AppKit -o $(NAME)
+	$(CC)  $(CFLAGS) $(SRC) $(LIBFT_A_PATH) -lmlx -framework OpenGL -framework AppKit -o $(NAME)
 
 SRC_R : $(OBJ)
 	@make -C $(LIBFT_PATH)
 
 %.o : %.c Common_files/header.h
-	$(CC) $(CFLAGS) -Imlx -c $< -o $@
+	@$(CC) $(CFLAGS) -Imlx -c $< -o $@
 
 clean:
 	@make clean -C libft

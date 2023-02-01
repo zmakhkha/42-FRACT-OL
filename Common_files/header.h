@@ -5,8 +5,8 @@
 /*                                                    +:+ +:+         +:+     */
 /*   By: zmakhkha <zmakhkha@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2023/01/22 21:28:09 by zmakhkha          #+#    #+#             */
-/*   Updated: 2023/02/01 15:19:33 by zmakhkha         ###   ########.fr       */
+/*   Created: 2023/02/01 17:28:41 by zmakhkha          #+#    #+#             */
+/*   Updated: 2023/02/01 20:10:05 by zmakhkha         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -47,6 +47,7 @@ typedef struct s_vars {
 	double		c_im;
 	double		x_scale;
 	double		y_scale;
+	int			type;
 }				t_vars;
 
 void		my_mlx_pixel_put(t_data *data, int x, int y, int color);
@@ -58,8 +59,18 @@ void		ft_initiate_mandelbrot(t_vars **d, int height, int width);
 void		ft_initiate_window(t_vars *data);
 void		ft_mlx_wait(t_vars *data);
 
+void		main_madelbrot(void);
+void		ft_julia(t_vars **d);
+void		main_julia(void);
+
 int			mouse_hook(int keycode, int x, int y, t_vars *a);
 int			key_hook(int keycode, t_vars *vars);
 int			destroy(t_vars *vars);
+void		ft_color_julia(t_vars *data);
+void		ft_put_info(t_vars *data);
+
+
+void		ft_mlx_initiate_window(t_vars *data, int width, int height, char *t);
+
 
 #endif
