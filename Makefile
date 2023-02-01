@@ -3,7 +3,7 @@ LIBFT_PATH = libft
 LIBFT_A_PATH = libft/libft.a
 NAME = mandelbrot
 
-SRC = mandelbrot_main.c Common_files/mlx_utils.c
+SRC = mandelbrot_main.c Common_files/mlx_utils.c Common_files/ft_colors.c Common_files/ft_hooks.c
 OBJ = $(SRC:.c=.o)
 
 
