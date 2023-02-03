@@ -6,16 +6,16 @@
 /*   By: zmakhkha <zmakhkha@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/10/16 14:21:30 by zmakhkha          #+#    #+#             */
-/*   Updated: 2022/11/02 16:55:29 by zmakhkha         ###   ########.fr       */
+/*   Updated: 2023/02/03 19:59:11 by zmakhkha         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-static	int	ret_nbr(char *tmp)
+static	long long	ret_nbr(char *tmp)
 {
-	int	i;
-	int	res;
+	long long	i;
+	long long	res;
 
 	i = 0;
 	res = 0;
@@ -31,10 +31,10 @@ static	int	ret_nbr(char *tmp)
 	return (res);
 }
 
-int	ft_atoi(const char *str)
+long long	ft_atoi(const char *str)
 {
-	char	*tmp;
-	int		i;
+	char			*tmp;
+	long long		i;
 
 	tmp = (char *) str;
 	i = 0;

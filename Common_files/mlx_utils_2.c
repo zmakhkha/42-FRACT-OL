@@ -6,12 +6,11 @@
 /*   By: zmakhkha <zmakhkha@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/02/01 17:21:48 by zmakhkha          #+#    #+#             */
-/*   Updated: 2023/02/01 19:05:53 by zmakhkha         ###   ########.fr       */
+/*   Updated: 2023/02/03 21:02:15 by zmakhkha         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "header.h"
-
 
 void	ft_initiate_window(t_vars *data)
 {

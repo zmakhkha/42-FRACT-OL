@@ -6,7 +6,7 @@
 /*   By: zmakhkha <zmakhkha@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/01/22 19:17:32 by zmakhkha          #+#    #+#             */
-/*   Updated: 2023/02/01 20:42:54 by zmakhkha         ###   ########.fr       */
+/*   Updated: 2023/02/03 18:11:15 by zmakhkha         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -83,6 +83,7 @@ void	main_madelbrot(void)
 
 	data = (t_vars *)malloc(sizeof(t_vars));
 	data -> type = 0;
+	data -> color_t = 0;
 	ft_mlx_initiate_window(data, 1000, 1000, "Mandelbrot set");
 	data -> m_iter = 50;
 	ft_mandelbrot(&data);

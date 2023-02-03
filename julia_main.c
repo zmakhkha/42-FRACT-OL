@@ -6,7 +6,7 @@
 /*   By: zmakhkha <zmakhkha@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/02/01 17:46:03 by zmakhkha          #+#    #+#             */
-/*   Updated: 2023/02/01 20:43:20 by zmakhkha         ###   ########.fr       */
+/*   Updated: 2023/02/03 21:01:54 by zmakhkha         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,8 +17,8 @@ void	ft_put_pixel_julia(t_vars **d)
 	t_vars	*data;
 
 	data = *d;
-	data -> c_re = -0.7269;
-	data -> c_im = 0.1889;
+	data -> c_re = data -> j_a;
+	data -> c_im = data -> j_b;
 	data -> n_re = ((data -> x * data ->x_scale) - data -> tr_x);
 	data -> n_im = ((data -> y * data ->y_scale) - data -> tr_y);
 	data -> n = -1;
@@ -39,7 +39,7 @@ void	ft_put_pixel_julia(t_vars **d)
 void	ft_julia(t_vars **d)
 {
 	t_vars	*data;
-	
+
 	data = *d;
 	data -> x = -1;
 	data -> y = -1;
@@ -53,14 +53,19 @@ void	ft_julia(t_vars **d)
 	mlx_put_image_to_window(data -> mlx, data -> win, data -> img.img, 0, 0);
 }
 
-void	main_julia(void)
+void	main_julia(float a, float b)
 {
 	t_vars	*data;
 
 	data = (t_vars *)malloc(sizeof(t_vars));
 	data -> type = 1;
 	ft_mlx_initiate_window(data, 1000, 1000, "Julia set");
+	data -> m_iter = 50;
+	data -> j_a = a;
+	data -> j_b = b;
 	data -> m_iter = 500;
+	printf("%f\n", data -> j_a);
+	printf("%f\n", data -> j_b);
 	ft_julia(&data);
 	ft_mlx_wait(data);
 	free (data);

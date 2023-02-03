@@ -6,7 +6,7 @@
 /*   By: zmakhkha <zmakhkha@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/01/29 15:26:31 by zmakhkha          #+#    #+#             */
-/*   Updated: 2023/02/01 20:09:27 by zmakhkha         ###   ########.fr       */
+/*   Updated: 2023/02/03 20:45:21 by zmakhkha         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,6 +16,16 @@ int	key_hook(int keycode, t_vars *vars)
 {
 	if (keycode == 53)
 		ft_close(keycode, vars);
+	else if (keycode == 0)
+	{
+		vars -> color_t = 1;
+		mlx_destroy_image(vars -> mlx, vars -> img.img);
+		if (!(vars -> type))
+				ft_mandelbrot(&vars);
+			else if (vars -> type == 1)
+				ft_julia(&vars);
+	}
+	
 	return (0);
 }
 
