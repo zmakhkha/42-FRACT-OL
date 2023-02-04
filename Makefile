@@ -7,6 +7,7 @@ SRC = Common_files/ft_colors.c \
 	Common_files/ft_hooks.c \
 	Common_files/mlx_utils_2.c \
 	Common_files/mlx_utils.c \
+	Common_files/ft_initiate.c \
 	main_program.c \
 	julia_main.c \
 	mandelbrot_main.c

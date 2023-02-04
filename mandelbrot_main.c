@@ -6,33 +6,11 @@
 /*   By: zmakhkha <zmakhkha@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/01/22 19:17:32 by zmakhkha          #+#    #+#             */
-/*   Updated: 2023/02/03 18:11:15 by zmakhkha         ###   ########.fr       */
+/*   Updated: 2023/02/04 18:25:39 by zmakhkha         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include"Common_files/header.h"
-
-void	ft_initiate_mandelbrot(t_vars **d, int height, int width)
-{
-	t_vars	*data;
-
-	data = *d;
-	data -> x = -1;
-	data -> y = -1;
-	data -> n = -1;
-	data -> width = width;
-	data -> height = height;
-	data -> o_re = 0;
-	data -> n_re = 0;
-	data -> o_im = 0;
-	data -> n_im = 0;
-	data -> c_re = 0;
-	data -> c_im = 0;
-	data -> tr_x = 2.0;
-	data -> tr_y = 2.0;
-	data -> x_scale = 4.0 / data -> width;
-	data -> y_scale = 4.0 / data -> height;
-}
 
 void	ft_put_pixel_mandelbrot(t_vars **d)
 {
@@ -55,7 +33,7 @@ void	ft_put_pixel_mandelbrot(t_vars **d)
 		* data -> n_im) >= 4)
 			break ;
 	}
-	ft_color_mandelbrot(data);
+	ft_color(data);
 }
 
 int	ft_mandelbrot(t_vars **d)

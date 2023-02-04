@@ -6,7 +6,7 @@
 /*   By: zmakhkha <zmakhkha@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/02/01 17:46:03 by zmakhkha          #+#    #+#             */
-/*   Updated: 2023/02/03 21:01:54 by zmakhkha         ###   ########.fr       */
+/*   Updated: 2023/02/04 19:06:14 by zmakhkha         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -33,7 +33,7 @@ void	ft_put_pixel_julia(t_vars **d)
 		* data -> n_im) >= 4)
 			break ;
 	}
-	ft_color_julia(data);
+	ft_color(data);
 }
 
 void	ft_julia(t_vars **d)
@@ -60,12 +60,10 @@ void	main_julia(float a, float b)
 	data = (t_vars *)malloc(sizeof(t_vars));
 	data -> type = 1;
 	ft_mlx_initiate_window(data, 1000, 1000, "Julia set");
-	data -> m_iter = 50;
+	data -> m_iter = 25;
 	data -> j_a = a;
 	data -> j_b = b;
 	data -> m_iter = 500;
-	printf("%f\n", data -> j_a);
-	printf("%f\n", data -> j_b);
 	ft_julia(&data);
 	ft_mlx_wait(data);
 	free (data);
