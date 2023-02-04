@@ -6,7 +6,7 @@
 /*   By: zmakhkha <zmakhkha@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/02/01 17:10:40 by zmakhkha          #+#    #+#             */
-/*   Updated: 2023/02/03 20:25:25 by zmakhkha         ###   ########.fr       */
+/*   Updated: 2023/02/04 23:01:38 by zmakhkha         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,7 +14,6 @@
 
 int	main(int n, char **v)
 {
-
 	float	a;
 	float	b;
 
@@ -27,11 +26,13 @@ int	main(int n, char **v)
 		if (!ft_strncmp(v[1], "-m", 2) || !ft_strncmp(v[1], "-M", 2))
 			main_madelbrot();
 		else if (!ft_strncmp(v[1], "-j", 2) || !ft_strncmp(v[1], "-J", 2))
+		{
 			if (n == 4)
 			{
 				a = ft_atof(v[2]);
 				b = ft_atof(v[3]);
 				main_julia(a, b);
 			}
+		}
 	}
 }

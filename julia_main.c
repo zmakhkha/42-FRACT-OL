@@ -6,7 +6,7 @@
 /*   By: zmakhkha <zmakhkha@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/02/01 17:46:03 by zmakhkha          #+#    #+#             */
-/*   Updated: 2023/02/04 19:06:14 by zmakhkha         ###   ########.fr       */
+/*   Updated: 2023/02/04 23:00:33 by zmakhkha         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -60,7 +60,6 @@ void	main_julia(float a, float b)
 	data = (t_vars *)malloc(sizeof(t_vars));
 	data -> type = 1;
 	ft_mlx_initiate_window(data, 1000, 1000, "Julia set");
-	data -> m_iter = 25;
 	data -> j_a = a;
 	data -> j_b = b;
 	data -> m_iter = 500;

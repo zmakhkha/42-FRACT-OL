@@ -4,7 +4,8 @@ LIBFT_A_PATH = libft/libft.a
 NAME = fract
 
 SRC = Common_files/ft_colors.c \
-	Common_files/ft_hooks.c \
+	Common_files/ft_hooks_01.c \
+	Common_files/ft_hooks_02.c \
 	Common_files/mlx_utils_2.c \
 	Common_files/mlx_utils.c \
 	Common_files/ft_initiate.c \

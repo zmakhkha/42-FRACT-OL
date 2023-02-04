@@ -6,7 +6,7 @@
 /*   By: zmakhkha <zmakhkha@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/02/01 12:31:15 by zmakhkha          #+#    #+#             */
-/*   Updated: 2023/02/04 18:22:08 by zmakhkha         ###   ########.fr       */
+/*   Updated: 2023/02/04 23:02:01 by zmakhkha         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -24,6 +24,7 @@ int	ft_test_limits(t_vars *data)
 		return (1);
 	return (0);
 }
+
 void	ft_color(t_vars *data)
 {
 	if (data -> color_t && data -> n < data -> m_iter)
@@ -33,5 +34,5 @@ void	ft_color(t_vars *data)
 	else
 		data->color = 0xB5D5C5;
 	if (ft_test_limits(data))
-		my_mlx_pixel_put(&(data -> img), data -> x,data -> y , data ->color);
+		my_mlx_pixel_put(&(data -> img), data -> x, data -> y, data ->color);
 }

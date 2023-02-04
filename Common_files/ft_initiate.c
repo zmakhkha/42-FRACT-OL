@@ -6,7 +6,7 @@
 /*   By: zmakhkha <zmakhkha@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/02/04 17:37:06 by zmakhkha          #+#    #+#             */
-/*   Updated: 2023/02/04 17:39:22 by zmakhkha         ###   ########.fr       */
+/*   Updated: 2023/02/04 23:03:32 by zmakhkha         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,6 +17,7 @@ void	ft_initiate_mandelbrot(t_vars **d, int height, int width)
 	t_vars	*data;
 
 	data = *d;
+	data -> m_iter = 25;
 	data -> x = -1;
 	data -> y = -1;
 	data -> n = -1;

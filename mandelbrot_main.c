@@ -6,7 +6,7 @@
 /*   By: zmakhkha <zmakhkha@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/01/22 19:17:32 by zmakhkha          #+#    #+#             */
-/*   Updated: 2023/02/04 18:25:39 by zmakhkha         ###   ########.fr       */
+/*   Updated: 2023/02/04 22:52:38 by zmakhkha         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -63,7 +63,6 @@ void	main_madelbrot(void)
 	data -> type = 0;
 	data -> color_t = 0;
 	ft_mlx_initiate_window(data, 1000, 1000, "Mandelbrot set");
-	data -> m_iter = 50;
 	ft_mandelbrot(&data);
 	ft_mlx_wait(data);
 	free (data);
