@@ -6,7 +6,7 @@
 /*   By: zmakhkha <zmakhkha@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/02/01 12:31:15 by zmakhkha          #+#    #+#             */
-/*   Updated: 2023/02/04 23:02:01 by zmakhkha         ###   ########.fr       */
+/*   Updated: 2023/02/04 23:54:05 by zmakhkha         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -28,7 +28,7 @@ int	ft_test_limits(t_vars *data)
 void	ft_color(t_vars *data)
 {
 	if (data -> color_t && data -> n < data -> m_iter)
-			data -> color = 0xFFFFFF * data -> n / data -> m_iter;
+			data -> color = 0xFFFFFF * log(data -> n);
 	else if (!(data -> color_t) && data -> n < data -> m_iter)
 			data -> color = 0xFFFFFF;
 	else

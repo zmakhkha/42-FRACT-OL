@@ -6,57 +6,61 @@
 /*   By: zmakhkha <zmakhkha@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/01/29 15:26:31 by zmakhkha          #+#    #+#             */
-/*   Updated: 2023/02/04 23:05:12 by zmakhkha         ###   ########.fr       */
+/*   Updated: 2023/02/05 00:19:25 by zmakhkha         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "header.h"
 
-void	ft_des_build(t_vars *vars)
+void	ft_des_build(t_vars *data)
 {
-	if (!(vars -> type))
-		ft_mandelbrot(&vars);
-	else if (vars -> type == 1)
-		ft_julia(&vars);
+	if (!(data -> type))
+		ft_mandelbrot(&data);
+	else if (data -> type == 1)
+		ft_julia(&data);
+	else if (data -> type == 2)
+		ft_multibrot(&data);
 }
 
-void	increase_m_iter(int keycode, t_vars *vars)
+void	increase_m_iter(int keycode, t_vars *data)
 {
-	(void)vars;
+	(void)data;
 	if (keycode == 69)
-		vars -> m_iter += 10;
+		data -> m_iter += 10;
 	else if (keycode == 78)
-		vars -> m_iter -= 10;
-	mlx_destroy_image(vars -> mlx, vars -> img.img);
-	ft_des_build(vars);
+		data -> m_iter -= 10;
+	mlx_destroy_image(data -> mlx, data -> img.img);
+	ft_des_build(data);
 }
 
-int	key_hook(int keycode, t_vars *vars)
+int	key_hook(int keycode, t_vars *data)
 {
 	if (keycode == 53)
-		ft_close(keycode, vars);
+		ft_close(keycode, data);
 	else if (keycode == 0)
 	{
-		vars -> color_t = 1;
-		mlx_destroy_image(vars -> mlx, vars -> img.img);
-		ft_des_build(vars);
+		data -> color_t = 1;
+		mlx_destroy_image(data -> mlx, data -> img.img);
+		ft_des_build(data);
 	}
-	increase_m_iter(keycode, vars);
-	key_arrow(keycode, vars);
+	increase_m_iter(keycode, data);
+	key_arrow(keycode, data);
 	return (0);
 }
 
-int	key_arrow(int keycode, t_vars *vars)
+int	key_arrow(int keycode, t_vars *data)
 {
 	if (keycode == 123)
-		vars -> tr_x -= .01;
+		data -> tr_x -= .01;
 	else if (keycode == 124)
-		vars -> tr_x += .01;
+		data -> tr_x += .01;
 	else if (keycode == 125)
-		vars -> tr_y += .01;
+		data -> tr_y += .01;
 	else if (keycode == 126)
-		vars -> tr_y -= .01;
-	mlx_destroy_image(vars -> mlx, vars -> img.img);
-	ft_des_build(vars);
+		data -> tr_y -= .01;
+	else if (keycode == 35)
+		data -> play += 1;
+	mlx_destroy_image(data -> mlx, data -> img.img);
+	ft_des_build(data);
 	return (0);
 }

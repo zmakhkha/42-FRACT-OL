@@ -6,7 +6,7 @@
 /*   By: zmakhkha <zmakhkha@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/02/01 17:21:48 by zmakhkha          #+#    #+#             */
-/*   Updated: 2023/02/03 21:02:15 by zmakhkha         ###   ########.fr       */
+/*   Updated: 2023/02/04 23:50:55 by zmakhkha         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -26,10 +26,4 @@ void	ft_mlx_initiate_window(t_vars *data, int width, int height, char *t)
 	data ->mlx = mlx_init();
 	data ->win = mlx_new_window(data -> mlx, data -> width, \
 	data -> height, t);
-}
-
-void	ft_put_info(t_vars *data)
-{
-	mlx_string_put(data -> mlx, data -> win, 50, 50, 0xFFFFFF, \
-	ft_strjoin("n :", ft_itoa(data -> n)));
 }

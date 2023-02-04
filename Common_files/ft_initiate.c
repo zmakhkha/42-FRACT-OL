@@ -6,18 +6,30 @@
 /*   By: zmakhkha <zmakhkha@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/02/04 17:37:06 by zmakhkha          #+#    #+#             */
-/*   Updated: 2023/02/04 23:03:32 by zmakhkha         ###   ########.fr       */
+/*   Updated: 2023/02/05 00:08:18 by zmakhkha         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include"header.h"
 
-void	ft_initiate_mandelbrot(t_vars **d, int height, int width)
+void	ft_initiate_2(t_vars **d)
 {
 	t_vars	*data;
 
 	data = *d;
+	data ->new_x = 0;
+	data ->new_y = 0;
+	data -> play = 0;
+}
+
+void	ft_initiate_mandelbrot(t_vars **d, int height, int width)
+{
+	t_vars	*data;
+
+	ft_initiate_2(d);
+	data = *d;
 	data -> m_iter = 25;
+	data -> color_t = 0;
 	data -> x = -1;
 	data -> y = -1;
 	data -> n = -1;
@@ -34,13 +46,4 @@ void	ft_initiate_mandelbrot(t_vars **d, int height, int width)
 	data -> tr_y = 2.0;
 	data -> x_scale = 4.0 / data -> width;
 	data -> y_scale = 4.0 / data -> height;
-}
-
-void	ft_initiate_2(t_vars **d)
-{
-	t_vars	*data;
-
-	data = *d;
-	data ->new_x = 0;
-	data ->new_y = 0;
 }

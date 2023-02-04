@@ -6,51 +6,51 @@
 /*   By: zmakhkha <zmakhkha@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/02/04 23:04:12 by zmakhkha          #+#    #+#             */
-/*   Updated: 2023/02/04 23:05:50 by zmakhkha         ###   ########.fr       */
+/*   Updated: 2023/02/05 00:21:02 by zmakhkha         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "header.h"
 
-int	mouse_move(int x, int y, t_vars *vars)
+int	mouse_move(int x, int y, t_vars *data)
 {
-	(void)vars;
+	(void)data;
 	(void)x;
 	(void)y;
-	if ((vars -> l_mouse % 2) && 0 < x && x \
-	< vars -> width && 0 < y && y < vars -> height)
+	if ((data -> l_mouse % 2) && 0 < x && x \
+	< data -> width && 0 < y && y < data -> height)
 	{
-		vars -> j_a = x * vars ->x_scale;
-		vars -> j_b = y * vars ->y_scale;
+		data -> j_a = x * data ->x_scale;
+		data -> j_b = y * data ->y_scale;
 	}
-	ft_des_build(vars);
+	if ((data -> play % 2) && 0 < x && x \
+		< data -> width && 0 < y && y < data -> height)
+		mouse_hook(4, x, y, data);
+	ft_des_build(data);
 	return (0);
 }
 
-int	mouse_hook(int keycode, int x, int y, t_vars *vars)
+int	mouse_hook(int keycode, int x, int y, t_vars *data)
 {
 	if (keycode == L_MOUSECLK)
-		vars -> l_mouse ++;
+		data -> l_mouse ++;
 	if (keycode == ON_MOUSEUP)
 	{
-		vars -> tr_x = vars -> tr_x + (x * vars ->x_scale);
-		vars -> tr_y = vars -> tr_y + (y * vars ->y_scale);
-		vars -> x_scale /= 0.5;
-		vars -> y_scale /= 0.5;
-		vars->m_iter -= 20;
+		data -> tr_x = data -> tr_x + (x * data ->x_scale);
+		data -> tr_y = data -> tr_y + (y * data ->y_scale);
+		data -> x_scale *= 2;
+		data -> y_scale *= 2;
+		data->m_iter -= 10;
 	}
 	if (keycode == 4)
 	{
-		vars -> x_scale *= 0.5;
-		vars -> y_scale *= 0.5;
-		vars -> tr_x = vars -> tr_x - (x * vars ->x_scale);
-		vars -> tr_y = vars -> tr_y - (y * vars ->y_scale);
-		vars->m_iter += 20;
+		data -> x_scale /= 2;
+		data -> y_scale /= 2;
+		data -> tr_x = data -> tr_x - (x * data ->x_scale);
+		data -> tr_y = data -> tr_y - (y * data ->y_scale);
+		data->m_iter += 10;
 	}
-	mlx_destroy_image(vars -> mlx, vars -> img.img);
-	if (!(vars -> type))
-		ft_mandelbrot(&vars);
-	else if (vars -> type == 1)
-		ft_julia(&vars);
+	mlx_destroy_image(data -> mlx, data -> img.img);
+	ft_des_build(data);
 	return (0);
 }

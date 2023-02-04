@@ -6,7 +6,7 @@
 /*   By: zmakhkha <zmakhkha@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/02/01 17:28:41 by zmakhkha          #+#    #+#             */
-/*   Updated: 2023/02/04 22:59:43 by zmakhkha         ###   ########.fr       */
+/*   Updated: 2023/02/05 00:04:14 by zmakhkha         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -54,6 +54,7 @@ typedef struct s_vars {
 	int			l_mouse;
 	int			new_x;
 	int			new_y;
+	int			play;
 }				t_vars;
 
 # define ON_MOUSEUP 5
@@ -72,7 +73,7 @@ void		ft_initiate_mandelbrot(t_vars **d, int height, int width);
 void		ft_initiate_window(t_vars *data);
 void		ft_mlx_wait(t_vars *data);
 
-void		main_madelbrot(void);
+void		main_mandelbrot(void);
 void		ft_julia(t_vars **d);
 void		main_julia(float a, float b);
 
@@ -80,6 +81,8 @@ int			mouse_hook(int keycode, int x, int y, t_vars *a);
 int			key_hook(int keycode, t_vars *vars);
 int			destroy(t_vars *vars);
 void		ft_put_info(t_vars *data);
+void		main_multibrot(void);
+int			ft_multibrot(t_vars **d);
 
 int			mouse_move(int x, int y, t_vars *vars);
 int			key_arrow(int keycode, t_vars *vars);
