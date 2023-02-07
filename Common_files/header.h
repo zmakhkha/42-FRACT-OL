@@ -6,7 +6,7 @@
 /*   By: zmakhkha <zmakhkha@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/02/01 17:28:41 by zmakhkha          #+#    #+#             */
-/*   Updated: 2023/02/07 18:45:07 by zmakhkha         ###   ########.fr       */
+/*   Updated: 2023/02/07 19:45:08 by zmakhkha         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -92,5 +92,7 @@ void		ft_mlx_initiate_window(t_vars *data, int width, \
 			int height, char *t);
 double		ft_pow(double a, int p);
 void		ft_color_b_ship(t_vars *data);
+void		ft_print_menu(void);
+double		ft_atof(char *str);
 
 #endif

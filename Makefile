@@ -12,7 +12,9 @@ SRC = Common_files/ft_colors.c \
 	main_program.c \
 	Algorithms/julia_main.c \
 	Algorithms/burning_ship.c \
-	Algorithms/mandelbrot_main.c
+	Algorithms/mandelbrot_main.c \
+	Parsing/ft_parse_it.c \
+	Common_files/ft_atof.c
 OBJ = $(SRC:.c=.o)
 
 

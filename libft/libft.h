@@ -6,7 +6,7 @@
 /*   By: zmakhkha <zmakhkha@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/10/23 10:19:40 by zmakhkha          #+#    #+#             */
-/*   Updated: 2023/02/03 20:59:51 by zmakhkha         ###   ########.fr       */
+/*   Updated: 2023/02/07 19:43:17 by zmakhkha         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -69,7 +69,6 @@ int			ft_lstsize(t_list *lst);
 int			ft_strncmp(const char *s1, const char *s2, size_t n);
 int			ft_tolower(int c);
 int			ft_toupper(int c);
-double		ft_atof(char *str);
 void		ft_print_error(char *str, int status);
 
 #endif

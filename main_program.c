@@ -6,7 +6,7 @@
 /*   By: zmakhkha <zmakhkha@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/02/01 17:10:40 by zmakhkha          #+#    #+#             */
-/*   Updated: 2023/02/07 18:42:57 by zmakhkha         ###   ########.fr       */
+/*   Updated: 2023/02/07 20:42:07 by zmakhkha         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,7 +20,7 @@ int	main(int n, char **v)
 	a = 0;
 	b = 0;
 	if (n == 1)
-		ft_print_error("Error", 1);
+		ft_print_menu();
 	else
 	{
 		if (!ft_strncmp(v[1], "-m", 2) || !ft_strncmp(v[1], "-M", 2))
@@ -33,6 +33,8 @@ int	main(int n, char **v)
 				b = ft_atof(v[3]);
 				main_julia(a, b);
 			}
+			else
+				ft_print_menu();
 		}
 		else if (!ft_strncmp(v[1], "-n", 2) || !ft_strncmp(v[1], "-N", 2))
 		{
