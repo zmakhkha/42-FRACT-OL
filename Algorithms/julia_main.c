@@ -1,68 +1,42 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   b_ship_main.c                                   :+:      :+:    :+:   */
+/*   julia_main.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: zmakhkha <zmakhkha@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2023/01/22 19:17:32 by zmakhkha          #+#    #+#             */
-/*   Updated: 2023/02/07 18:38:04 by zmakhkha         ###   ########.fr       */
+/*   Created: 2023/02/01 17:46:03 by zmakhkha          #+#    #+#             */
+/*   Updated: 2023/02/07 19:09:33 by zmakhkha         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include"Common_files/header.h"
-#include<math.h>
+#include"../Common_files/header.h"
 
-double	ft_pow(double a, int p)
-{
-	int		i;
-	double	tmp;
-
-	tmp = a;
-	i = 0;
-	if (p == 0)
-	{
-		return (1);
-	}
-	else if (p > 0)
-	{
-		while (++i < p)
-			a *= tmp;
-	}
-	else if (p < 0)
-	{
-		tmp = 1 / a;
-		a = tmp;
-		while (--i > p)
-			a *= tmp;
-	}
-	return (a);
-}
-
-void	ft_put_pixel_b_ship(t_vars **d)
+void	ft_put_pixel_julia(t_vars **d)
 {
 	t_vars	*data;
 
 	data = *d;
-	data -> c_re = ((data -> x * data ->x_scale) - data -> tr_x);
-	data -> c_im = ((data -> y * data ->y_scale) - data -> tr_y);
-	data -> n_re = 0;
-	data -> n_im = 0;
+	data -> c_re = data -> j_a;
+	data -> c_im = data -> j_b;
+	data -> n_re = ((data -> x * data ->x_scale) - data -> tr_x);
+	data -> n_im = ((data -> y * data ->y_scale) - data -> tr_y);
 	data -> n = -1;
 	while (++(data -> n) < data -> m_iter)
 	{
 		data -> o_re = data -> n_re;
 		data -> o_im = data -> n_im;
-		data -> n_re = ft_pow(data -> o_re, 2) - \
-			ft_pow(data ->o_im, 2) + data ->c_re;
-		data -> n_im = 2 * fabs(data -> o_re * data -> o_im) + data ->c_im;
-		if (ft_pow(data -> n_re, 2) + ft_pow(data -> n_im, 2) >= 4)
+		data -> n_re = ((data -> o_re) * (data -> o_re) - \
+		(data -> o_im) * (data -> o_im)) + data -> c_re;
+		data -> n_im = (2 * data -> o_re * data -> o_im) + data -> c_im;
+		if ((data -> n_re * data -> n_re + data -> n_im \
+		* data -> n_im) >= 4)
 			break ;
 	}
 	ft_color(data);
 }
 
-int	ft_b_ship(t_vars **d)
+void	ft_julia(t_vars **d)
 {
 	t_vars	*data;
 
@@ -74,20 +48,22 @@ int	ft_b_ship(t_vars **d)
 	{
 		data -> y = -1;
 		while (++data -> y < data -> height)
-			ft_put_pixel_b_ship(&data);
+			ft_put_pixel_julia(&data);
 	}
 	mlx_put_image_to_window(data -> mlx, data -> win, data -> img.img, 0, 0);
-	return (1);
 }
 
-void	main_b_ship(void)
+void	main_julia(float a, float b)
 {
 	t_vars	*data;
 
 	data = (t_vars *)malloc(sizeof(t_vars));
-	data -> type = 2;
-	ft_mlx_initiate_window(data, 1000, 1000, "b_ship set");
-	ft_b_ship(&data);
+	data -> type = 1;
+	ft_mlx_initiate_window(data, 1000, 1000, "Julia set");
+	data -> j_a = a;
+	data -> j_b = b;
+	data -> m_iter = 500;
+	ft_julia(&data);
 	ft_mlx_wait(data);
 	free (data);
 }

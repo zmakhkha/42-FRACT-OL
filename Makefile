@@ -10,9 +10,9 @@ SRC = Common_files/ft_colors.c \
 	Common_files/mlx_utils.c \
 	Common_files/ft_initiate.c \
 	main_program.c \
-	julia_main.c \
-	burning_ship.c \
-	mandelbrot_main.c
+	Algorithms/julia_main.c \
+	Algorithms/burning_ship.c \
+	Algorithms/mandelbrot_main.c
 OBJ = $(SRC:.c=.o)
 
 

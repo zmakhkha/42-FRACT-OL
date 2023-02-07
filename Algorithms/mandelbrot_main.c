@@ -1,42 +1,41 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   julia_main.c                                       :+:      :+:    :+:   */
+/*   mandelbrot_main.c                                  :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: zmakhkha <zmakhkha@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2023/02/01 17:46:03 by zmakhkha          #+#    #+#             */
-/*   Updated: 2023/02/04 23:00:33 by zmakhkha         ###   ########.fr       */
+/*   Created: 2023/01/22 19:17:32 by zmakhkha          #+#    #+#             */
+/*   Updated: 2023/02/07 19:09:37 by zmakhkha         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include"Common_files/header.h"
+#include"../Common_files/header.h"
 
-void	ft_put_pixel_julia(t_vars **d)
+void	ft_put_pixel_mandelbrot(t_vars **d)
 {
 	t_vars	*data;
 
 	data = *d;
-	data -> c_re = data -> j_a;
-	data -> c_im = data -> j_b;
-	data -> n_re = ((data -> x * data ->x_scale) - data -> tr_x);
-	data -> n_im = ((data -> y * data ->y_scale) - data -> tr_y);
+	data -> c_re = ((data -> x * data ->x_scale) - data -> tr_x);
+	data -> c_im = ((data -> y * data ->y_scale) - data -> tr_y);
+	data -> n_re = 0;
+	data -> n_im = 0;
 	data -> n = -1;
 	while (++(data -> n) < data -> m_iter)
 	{
 		data -> o_re = data -> n_re;
 		data -> o_im = data -> n_im;
-		data -> n_re = ((data -> o_re) * (data -> o_re) - \
+		data -> n_re = (ft_pow(data -> o_re, 2) - \
 		(data -> o_im) * (data -> o_im)) + data -> c_re;
 		data -> n_im = (2 * data -> o_re * data -> o_im) + data -> c_im;
-		if ((data -> n_re * data -> n_re + data -> n_im \
-		* data -> n_im) >= 4)
+		if (ft_pow(data -> n_re, 2) + ft_pow(data -> n_im, 2) >= 4)
 			break ;
 	}
 	ft_color(data);
 }
 
-void	ft_julia(t_vars **d)
+int	ft_mandelbrot(t_vars **d)
 {
 	t_vars	*data;
 
@@ -48,22 +47,21 @@ void	ft_julia(t_vars **d)
 	{
 		data -> y = -1;
 		while (++data -> y < data -> height)
-			ft_put_pixel_julia(&data);
+			ft_put_pixel_mandelbrot(&data);
 	}
 	mlx_put_image_to_window(data -> mlx, data -> win, data -> img.img, 0, 0);
+	return (1);
 }
 
-void	main_julia(float a, float b)
+void	main_mandelbrot(void)
 {
 	t_vars	*data;
 
 	data = (t_vars *)malloc(sizeof(t_vars));
-	data -> type = 1;
-	ft_mlx_initiate_window(data, 1000, 1000, "Julia set");
-	data -> j_a = a;
-	data -> j_b = b;
-	data -> m_iter = 500;
-	ft_julia(&data);
+	data -> type = 0;
+	data -> color_t = 0;
+	ft_mlx_initiate_window(data, 1000, 1000, "Mandelbrot set");
+	ft_mandelbrot(&data);
 	ft_mlx_wait(data);
 	free (data);
 }
