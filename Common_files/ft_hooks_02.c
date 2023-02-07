@@ -6,7 +6,7 @@
 /*   By: zmakhkha <zmakhkha@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/02/04 23:04:12 by zmakhkha          #+#    #+#             */
-/*   Updated: 2023/02/05 00:21:02 by zmakhkha         ###   ########.fr       */
+/*   Updated: 2023/02/07 16:54:34 by zmakhkha         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -23,7 +23,7 @@ int	mouse_move(int x, int y, t_vars *data)
 		data -> j_a = x * data ->x_scale;
 		data -> j_b = y * data ->y_scale;
 	}
-	if ((data -> play % 2) && 0 < x && x \
+	if ((data -> play % 5) && 0 < x && x \
 		< data -> width && 0 < y && y < data -> height)
 		mouse_hook(4, x, y, data);
 	ft_des_build(data);
@@ -40,7 +40,8 @@ int	mouse_hook(int keycode, int x, int y, t_vars *data)
 		data -> tr_y = data -> tr_y + (y * data ->y_scale);
 		data -> x_scale *= 2;
 		data -> y_scale *= 2;
-		data->m_iter -= 10;
+		if (data -> m_iter > 25)
+			data->m_iter -= 10;
 	}
 	if (keycode == 4)
 	{

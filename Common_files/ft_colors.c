@@ -6,7 +6,7 @@
 /*   By: zmakhkha <zmakhkha@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/02/01 12:31:15 by zmakhkha          #+#    #+#             */
-/*   Updated: 2023/02/04 23:54:05 by zmakhkha         ###   ########.fr       */
+/*   Updated: 2023/02/07 18:45:01 by zmakhkha         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -33,6 +33,18 @@ void	ft_color(t_vars *data)
 			data -> color = 0xFFFFFF;
 	else
 		data->color = 0xB5D5C5;
+	if (ft_test_limits(data))
+		my_mlx_pixel_put(&(data -> img), data -> x, data -> y, data ->color);
+}
+
+void	ft_color_multibrot(t_vars *data)
+{
+	if (data -> n == 1)
+			data -> color = 0xFFFFFF * log(data -> n);
+	else if (data -> n == 1 / 2 + sqrt(3) / 2)
+			data -> color = 0xB5D5C5;
+	else if (data -> n == 1 / 2 - sqrt(3) / 2)
+		data -> color = 0xFF0000;
 	if (ft_test_limits(data))
 		my_mlx_pixel_put(&(data -> img), data -> x, data -> y, data ->color);
 }

@@ -6,7 +6,7 @@
 /*   By: zmakhkha <zmakhkha@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/01/22 19:17:32 by zmakhkha          #+#    #+#             */
-/*   Updated: 2023/02/04 23:52:13 by zmakhkha         ###   ########.fr       */
+/*   Updated: 2023/02/07 18:10:35 by zmakhkha         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -26,11 +26,10 @@ void	ft_put_pixel_mandelbrot(t_vars **d)
 	{
 		data -> o_re = data -> n_re;
 		data -> o_im = data -> n_im;
-		data -> n_re = ((data -> o_re) * (data -> o_re) - \
+		data -> n_re = (ft_pow(data -> o_re, 2) - \
 		(data -> o_im) * (data -> o_im)) + data -> c_re;
 		data -> n_im = (2 * data -> o_re * data -> o_im) + data -> c_im;
-		if ((data -> n_re * data -> n_re + data -> n_im \
-		* data -> n_im) >= 4)
+		if (ft_pow(data -> n_re, 2) + ft_pow(data -> n_im, 2) >= 4)
 			break ;
 	}
 	ft_color(data);

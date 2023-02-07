@@ -11,7 +11,7 @@ SRC = Common_files/ft_colors.c \
 	Common_files/ft_initiate.c \
 	main_program.c \
 	julia_main.c \
-	multibrot_main.c \
+	burning_ship.c \
 	mandelbrot_main.c
 OBJ = $(SRC:.c=.o)
 

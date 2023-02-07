@@ -6,7 +6,7 @@
 /*   By: zmakhkha <zmakhkha@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/02/01 17:10:40 by zmakhkha          #+#    #+#             */
-/*   Updated: 2023/02/04 23:41:45 by zmakhkha         ###   ########.fr       */
+/*   Updated: 2023/02/07 18:42:57 by zmakhkha         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -34,9 +34,9 @@ int	main(int n, char **v)
 				main_julia(a, b);
 			}
 		}
-		else if (!ft_strncmp(v[1], "-b", 2) || !ft_strncmp(v[1], "-b", 2))
+		else if (!ft_strncmp(v[1], "-n", 2) || !ft_strncmp(v[1], "-N", 2))
 		{
-			main_multibrot();
+			main_b_ship();
 		}
 	}
 }

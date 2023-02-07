@@ -6,7 +6,7 @@
 /*   By: zmakhkha <zmakhkha@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/02/01 17:28:41 by zmakhkha          #+#    #+#             */
-/*   Updated: 2023/02/05 00:04:14 by zmakhkha         ###   ########.fr       */
+/*   Updated: 2023/02/07 18:45:07 by zmakhkha         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -81,8 +81,8 @@ int			mouse_hook(int keycode, int x, int y, t_vars *a);
 int			key_hook(int keycode, t_vars *vars);
 int			destroy(t_vars *vars);
 void		ft_put_info(t_vars *data);
-void		main_multibrot(void);
-int			ft_multibrot(t_vars **d);
+void		main_b_ship(void);
+int			ft_b_ship(t_vars **d);
 
 int			mouse_move(int x, int y, t_vars *vars);
 int			key_arrow(int keycode, t_vars *vars);
@@ -90,5 +90,7 @@ void		ft_des_build(t_vars *vars);
 void		increase_m_iter(int keycode, t_vars *vars);
 void		ft_mlx_initiate_window(t_vars *data, int width, \
 			int height, char *t);
+double		ft_pow(double a, int p);
+void		ft_color_b_ship(t_vars *data);
 
 #endif
