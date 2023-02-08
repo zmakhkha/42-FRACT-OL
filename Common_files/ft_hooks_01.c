@@ -6,7 +6,7 @@
 /*   By: zmakhkha <zmakhkha@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/01/29 15:26:31 by zmakhkha          #+#    #+#             */
-/*   Updated: 2023/02/07 18:42:25 by zmakhkha         ###   ########.fr       */
+/*   Updated: 2023/02/08 13:33:47 by zmakhkha         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -39,7 +39,7 @@ int	key_hook(int keycode, t_vars *data)
 		ft_close(keycode, data);
 	else if (keycode == 0)
 	{
-		data -> color_t = 1;
+		data -> color_t += 1;
 		mlx_destroy_image(data -> mlx, data -> img.img);
 		ft_des_build(data);
 	}

@@ -11,7 +11,6 @@
 /* ************************************************************************** */
 
 #include"../Common_files/header.h"
-#include<math.h>
 
 double	ft_pow(double a, int p)
 {

@@ -6,7 +6,7 @@
 /*   By: zmakhkha <zmakhkha@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/02/01 17:28:41 by zmakhkha          #+#    #+#             */
-/*   Updated: 2023/02/07 19:45:08 by zmakhkha         ###   ########.fr       */
+/*   Updated: 2023/02/08 13:55:50 by zmakhkha         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,7 +15,8 @@
 
 # include "../libft/libft.h"
 # include <mlx.h>
-# include <libc.h>
+# include<math.h>
+# include<stdlib.h>
 
 typedef struct s_data {
 	void	*img;
@@ -94,5 +95,6 @@ double		ft_pow(double a, int p);
 void		ft_color_b_ship(t_vars *data);
 void		ft_print_menu(void);
 double		ft_atof(char *str);
+void		ft_free_it(char **a);
 
 #endif
