@@ -6,11 +6,34 @@
 /*   By: zmakhkha <zmakhkha@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/02/07 19:15:58 by zmakhkha          #+#    #+#             */
-/*   Updated: 2023/02/07 19:45:39 by zmakhkha         ###   ########.fr       */
+/*   Updated: 2023/02/08 16:09:31 by zmakhkha         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include"../Common_files/header.h"
+
+void	ft_isnumber(char *number)
+{
+	int	i;
+
+	i = 0;
+	if (number[0] == '-' || number[0] == '+')
+		i++;
+	if (!number[i])
+	{
+		free (number);
+		ft_print_menu();
+	}
+	while (number[i])
+	{
+		if (!ft_isdigit(number[i]))
+		{
+			free (number);
+			ft_print_menu();
+		}
+		i++;
+	}
+}
 
 void	ft_print_menu(void)
 {

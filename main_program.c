@@ -6,20 +6,14 @@
 /*   By: zmakhkha <zmakhkha@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/02/01 17:10:40 by zmakhkha          #+#    #+#             */
-/*   Updated: 2023/02/08 13:47:17 by zmakhkha         ###   ########.fr       */
+/*   Updated: 2023/02/08 18:01:46 by zmakhkha         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include"Common_files/header.h"
 
-void	f(void)
-{
-	system("leaks fract");
-}
-
 int	main(int n, char **v)
 {
-	atexit(f);
 	if (n == 1)
 		ft_print_menu();
 	else if (n == 2)

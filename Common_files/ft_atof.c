@@ -6,7 +6,7 @@
 /*   By: zmakhkha <zmakhkha@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/02/03 18:30:34 by zmakhkha          #+#    #+#             */
-/*   Updated: 2023/02/08 13:56:59 by zmakhkha         ###   ########.fr       */
+/*   Updated: 2023/02/08 16:35:50 by zmakhkha         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,10 +17,19 @@ void	ft_free_it(char **a)
 	int	i;
 
 	i = -1;
-	while(a[++i])
+	while (a[++i])
 		free(a[i]);
 	free(a);
 }
+
+static void	test_int(char **a)
+{
+	if (!a[0] || !a[1])
+		ft_print_menu();
+	ft_isnumber(a[0]);
+	ft_isnumber(a[1]);
+}
+
 double	ft_atof(char *str)
 {
 	char		**res_str;
@@ -30,6 +39,7 @@ double	ft_atof(char *str)
 	int			p;
 
 	res_str = ft_split(str, '.');
+	test_int(res_str);
 	res_1 = ft_atoi(res_str[0]);
 	if (res_1 < 0)
 		res_1 *= -1;

@@ -6,7 +6,7 @@
 /*   By: zmakhkha <zmakhkha@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/02/01 17:28:41 by zmakhkha          #+#    #+#             */
-/*   Updated: 2023/02/08 13:55:50 by zmakhkha         ###   ########.fr       */
+/*   Updated: 2023/02/08 17:57:27 by zmakhkha         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -59,6 +59,7 @@ typedef struct s_vars {
 }				t_vars;
 
 # define ON_MOUSEUP 5
+# define ON_MOUSEDW 4
 # define L_MOUSECLK 1
 # define K_PRESS 2
 # define ON_DESTROY 17
@@ -96,5 +97,6 @@ void		ft_color_b_ship(t_vars *data);
 void		ft_print_menu(void);
 double		ft_atof(char *str);
 void		ft_free_it(char **a);
+void		ft_isnumber(char *number);
 
 #endif
