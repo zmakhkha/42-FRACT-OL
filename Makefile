@@ -14,7 +14,8 @@ SRC = Common_files/ft_colors.c \
 	Algorithms/burning_ship.c \
 	Algorithms/mandelbrot_main.c \
 	Parsing/ft_parse_it.c \
-	Common_files/ft_atof.c
+	Common_files/ft_atof.c \
+	Algorithms/tricorn.c
 OBJ = $(SRC:.c=.o)
 
 
@@ -25,12 +26,12 @@ CFLAGS = -Wall -Werror -Wextra
 all: $(NAME_R) NAME
 
 NAME : SRC_R
-	$(CC)  $(CFLAGS) $(SRC) $(LIBFT_A_PATH) -lmlx -framework OpenGL -framework AppKit -o $(NAME)
+	$(CC)  $(CFLAGS) $(OBJ) $(LIBFT_A_PATH) -lmlx -framework OpenGL -framework AppKit -o $(NAME)
 
 SRC_R : $(OBJ)
 	@make -C $(LIBFT_PATH)
 
-%.o : %.c Common_files/header.h
+%.o:%.c Common_files/header.h
 	@$(CC) $(CFLAGS) -Imlx -c $< -o $@
 
 clean:

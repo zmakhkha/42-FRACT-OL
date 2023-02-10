@@ -6,7 +6,7 @@
 /*   By: zmakhkha <zmakhkha@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/01/29 15:26:31 by zmakhkha          #+#    #+#             */
-/*   Updated: 2023/02/08 13:33:47 by zmakhkha         ###   ########.fr       */
+/*   Updated: 2023/02/10 14:19:01 by zmakhkha         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,6 +20,8 @@ void	ft_des_build(t_vars *data)
 		ft_julia(&data);
 	else if (data -> type == 2)
 		ft_b_ship(&data);
+	else if (data -> type == 3)
+		ft_t_corn(&data);
 }
 
 void	increase_m_iter(int keycode, t_vars *data)

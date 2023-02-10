@@ -6,7 +6,7 @@
 /*   By: zmakhkha <zmakhkha@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/02/01 17:28:41 by zmakhkha          #+#    #+#             */
-/*   Updated: 2023/02/08 17:57:27 by zmakhkha         ###   ########.fr       */
+/*   Updated: 2023/02/10 14:20:06 by zmakhkha         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -98,5 +98,8 @@ void		ft_print_menu(void);
 double		ft_atof(char *str);
 void		ft_free_it(char **a);
 void		ft_isnumber(char *number);
+void		main_t_corn(void);
+int			ft_t_corn(t_vars **d);
+void		ft_put_pixel_t_corn(t_vars **d);
 
 #endif
