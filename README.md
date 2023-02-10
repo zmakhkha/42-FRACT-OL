@@ -123,7 +123,6 @@ Fractals are fascinating mathematical objects that are capable of generating int
 
 <img src="Examples/7.png"/>
 <img src="Examples/8.png"/>
-<img src="Examples/9.png"/>
 <img src="Examples/10.png"/>
 
 ## Tricorn set
